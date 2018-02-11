@@ -2,7 +2,7 @@ Caffe-Android-Lib (OpenCL)
 ===============
 
 ## Goal
-Porting [caffe](https://github.com/BVLC/caffe) ##OpenCL## to android platform
+Porting [caffe](https://github.com/BVLC/caffe) *OpenCL* to android platform
 
 ### Support
 * Up-to-date caffe 
