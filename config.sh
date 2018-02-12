@@ -10,7 +10,7 @@ export PROJECT_DIR
 export INSTALL_DIR=${PROJECT_DIR}/android_lib
 export TOOLCHAIN_DIR=${PROJECT_DIR}/toolchains
 export N_JOBS=${N_JOBS:-4}
-export NDK_ROOT=${NDK_ROOT:-"/opt/android-ndk-r11c"}
+export NDK_ROOT=${NDK_ROOT:-"/etc/android-ndk-r15c"}
 
 case "$(uname -s)" in
     Darwin)

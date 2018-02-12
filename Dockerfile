@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget
 
 RUN curl -SL \
-    http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip \
+    http://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip \
     -o /tmp/android-ndk.zip \
     && unzip -q -d /opt /tmp/android-ndk.zip \
     && rm -f /tmp/android-ndk.zip

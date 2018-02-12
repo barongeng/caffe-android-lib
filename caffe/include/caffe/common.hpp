@@ -34,6 +34,22 @@
 #define STRINGIFY(m) #m
 #define AS_STRING(m) STRINGIFY(m)
 
+
+// NDK 14c error 'to_string' is not a member of 'std' android
+//#ifdef ANDROID_ABI
+#include <string>
+#include <sstream>
+namespace std
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
+//#endif
+
 // gflags 2.1 issue: namespace google was changed to gflags without warning.
 // Luckily we will be able to use GFLAGS_GFLAGS_H_ to detect if it is version
 // 2.1. If yes, we will add a temporary solution to redirect the namespace.

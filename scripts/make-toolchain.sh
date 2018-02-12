@@ -8,4 +8,4 @@ set -eu
 [ -d "$TOOLCHAIN_DIR" ] && exit 0
 
 mkdir -p "$TOOLCHAIN_DIR"
-"$NDK_ROOT/build/tools/make-standalone-toolchain.sh" --install-dir="$TOOLCHAIN_DIR" --platform=android-21 --toolchain="$TOOLCHAIN"
+"$NDK_ROOT/build/tools/make-standalone-toolchain.sh" --install-dir="$TOOLCHAIN_DIR" --platform=android-21 --toolchain="$TOOLCHAIN" --force

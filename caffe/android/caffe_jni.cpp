@@ -177,9 +177,8 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
     return result;
   }
 
-//  Compilation fails with error for these lines:
-//  FLAGS_redirecttologcat = true;
-//  FLAGS_android_logcat_tag = "caffe_jni";
+  FLAGS_redirecttologcat = true;
+  FLAGS_android_logcat_tag = "caffe_jni";
 
   return JNI_VERSION_1_6;
 }
