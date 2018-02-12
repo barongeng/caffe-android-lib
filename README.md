@@ -1,41 +1,40 @@
-Caffe-Android-Lib
+Caffe-Android-Lib (OpenCL)
 ===============
 
 ## Goal
-Porting [caffe](https://github.com/BVLC/caffe) to android platform
+Porting [caffe](https://github.com/BVLC/caffe) **OpenCL** to android platform
 
 ### Support
-* Up-to-date caffe ([d91572d](https://github.com/BVLC/caffe/commit/d91572da2ea5e63c9eaacaf013dfbcbc0ada5f67))
-* CPU only
+* Up-to-date caffe 
+* CPU & GPU 
 * No support for hdf5
 
 ## Build
 
-### RECOMMENDED: Using Docker
+### On local machine
+**Tested with XiaoMi 5, Android NDK r15c and cmake 3.5.1 on Ubuntu 16.06**
+
+Install NDK r15c
 ```sh
-git clone --recursive https://github.com/sh1r0/caffe-android-lib.git
-cd caffe-android-lib
-# build image
-docker build -t caffe-android-lib .
-# run a container for building your own caffe-android-lib, e.g.,
-docker run --rm --name caffe-android-builder \
-    -e ANDROID_ABI=x86_64 \
-    -e N_JOBS=2 \
-    -v $(pwd)/android_lib/x86_64:/caffe-android-lib/android_lib \
-    caffe-android-lib ./build.sh
+wget https://dl.google.com/android/repository/android-ndk-r15c-linux-x86_64.zip
+sudo unzip android-ndk-r15c-linux-x86_64.zip -d /etc
+```
+Download target libOpenCL.so from your Andriod device by adb. Normally under /vendor/lib64/libOpenCL.so
+```sh
+adb pull /vendor/lib64/libOpenCL.so  ~/
 ```
 
-### On local machine
-
-Tested with Android NDK r11c and cmake 3.5.2 on Ubuntu 14.04
-
+Start building
 ```sh
-git clone --recursive https://github.com/sh1r0/caffe-android-lib.git
+git clone --recursive https://github.com/quhezheng/caffe-android-lib.git
 cd caffe-android-lib
-export ANDROID_ABI=x86_64
-export NDK_ROOT=/path/to/ndk
+export ANDROID_ABI=arm64-v8a
+export NDK_ROOT=/etc/android-ndk-r15c  (or /your/path/to/ndk)
+cp ~/libOpenCL.so android_lib/opencl-android/lib
 ./build.sh
 ```
+There it will be \*.so \*.a libaray under caffe-android-lib/caffe/build/lib
+
 
 ### NOTE: OpenBLAS
 OpenBLAS is the only supported BLAS choice now, and the supported ABIs are the following:
@@ -54,8 +53,6 @@ Thanks.
 ## TODO
 - [ ] Integrate using CMake's ExternalProject
 - [ ] Support HDF5
-- [ ] OpenCL support
-- [ ] CUDA suuport
 
 ## Optional
 `.envrc` files are for [direnv](http://direnv.net/)
