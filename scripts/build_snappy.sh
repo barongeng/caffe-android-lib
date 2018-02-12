@@ -7,7 +7,7 @@ set -eu
 
 SNAPPY_ROOT=${PROJECT_DIR}/snappy
 
-cp ${PROJECT_DIR}/makefile_patch/snappy/Makefile.am $LEVELDB_ROOT/Makefile.am
+cp ${PROJECT_DIR}/makefile_patch/snappy/Makefile.am ${SNAPPY_ROOT}/Makefile.am
 
 "$PROJECT_DIR/scripts/make-toolchain.sh"
 

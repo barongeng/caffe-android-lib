@@ -7,7 +7,7 @@ set -eu
 
 LEVELDB_ROOT=${PROJECT_DIR}/leveldb
 
-cp ${PROJECT_DIR}/makefile_patch/leveldb/Makefile $LEVELDB_ROOT/Makefile
+cp ${PROJECT_DIR}/makefile_patch/leveldb/Makefile ${LEVELDB_ROOT}/Makefile
 
 "$PROJECT_DIR/scripts/make-toolchain.sh"
 
