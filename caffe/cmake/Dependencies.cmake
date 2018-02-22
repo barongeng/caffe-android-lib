@@ -5,7 +5,12 @@ set(Caffe_DEFINITIONS "")
 set(Caffe_COMPILE_OPTIONS "")
 
 # ---[ Boost
-find_package(Boost 1.54 REQUIRED COMPONENTS system thread filesystem)
+if(NOT Boost_INCLUDE_DIR)
+  find_package(Boost 1.54 REQUIRED COMPONENTS system thread filesystem)
+endif()
+#MESSAGE(STATUS "Boost_LIBRARIES ${Boost_LIBRARIES}")
+#MESSAGE(STATUS "Boost_INCLUDE_DIR ${Boost_INCLUDE_DIR}")
+
 list(APPEND Caffe_INCLUDE_DIRS PUBLIC ${Boost_INCLUDE_DIRS})
 list(APPEND Caffe_DEFINITIONS PUBLIC -DBOOST_ALL_NO_LIB)
 list(APPEND Caffe_LINKER_LIBS PUBLIC ${Boost_LIBRARIES})
