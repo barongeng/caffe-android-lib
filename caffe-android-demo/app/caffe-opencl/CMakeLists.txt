@@ -12,7 +12,7 @@ add_definitions(-DCAFFE_VERSION=${CAFFE_TARGET_VERSION})
 # This code is taken from https://github.com/sh1r0/caffe-android-lib
 # Search packages for host system instead of packages for target system
 # in case of cross compilation these macro should be defined by toolchain file
-set(INSTALL_DIR "/home/hezheng/caffe-android-lib/android_lib")
+set(INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../android_lib)
 set(ANDROID_LIB_ROOT ${INSTALL_DIR})
 set(BOOST_HOME ${INSTALL_DIR}/boost)
 set(GFLAGS_HOME ${INSTALL_DIR}/gflags)
